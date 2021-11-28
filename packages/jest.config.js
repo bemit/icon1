@@ -23,7 +23,9 @@ const base = {
         '^.+\\.tsx?$': 'ts-jest',
     },*/
     moduleNameMapper: {
-        '^@icon1(.*)$': '<rootDir>/flow-doodle/src$1',
+        '^@icon1/core(.*)$': '<rootDir>/icon1-core/src$1',
+        '^@icon1/react(.*)$': '<rootDir>/icon1-react/src$1',
+        '^@icon1/mui(.*)$': '<rootDir>/icon1-mui/src$1',
     },
     moduleFileExtensions: [
         'ts',

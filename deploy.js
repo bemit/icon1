@@ -53,7 +53,7 @@ const deployments = [
     prepareDeployment,
     authDeployer,
     // the actual `apps deploy` actions >>>
-    ...actionTargets['flow-doodle'].deploy,
+    ...actionTargets['icon1-api'].deploy,
     // <<< the actual `apps deploy` actions
     apiDeploy(['verbose=1']),
 ]
