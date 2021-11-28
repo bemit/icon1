@@ -12,7 +12,7 @@
 cd ./packages
 
 cd icon1-core
-cp package.json build/ && cp package-lock.json build/ && cp README.md build/
+cp package.json build/ && cp README.md build/
 cd ../
 
 cd icon1-react
