@@ -1,0 +1,45 @@
+{
+    "name": "@icon1/react",
+    "version": "0.0.1",
+    "description": "",
+    "homepage": "https://flow-doodle.bemit.codes",
+    "author": "Michael Becker <michael@bemit.codes>",
+    "license": "MIT",
+    "keywords": [
+        "react-component",
+        "react"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bemit/icon1.git",
+        "directory": "packages/icon1-react"
+    },
+    "bugs": {
+        "url": "https://github.com/elbakerino/flow-doodle/issues"
+    },
+    "main": "index.js",
+    "module": "esm/index.js",
+    "scripts": {
+        "dtsgen": "tsc -d --emitDeclarationOnly --pretty && merge-dirs build/dts/icon1-react/src build && rm -rf build/dts && rm -rf build/**/*.test.*",
+        "__release": "cp package.json build/ && cp package-lock.json build/ && cp README.md build/ && npm publish build"
+    },
+    "devDependencies": {
+        "@types/react": "^16.8.6 || ^17.0.0",
+        "react": "^16.12",
+        "react-dom": "^16.12",
+        "@icon1/core": "~0.0.1"
+    },
+    "peerDependencies": {
+        "react": "^16.8 || ^17.0",
+        "@types/react": "^16.8.6 || ^17.0.0",
+        "@icon1/core": "~0.0.1"
+    },
+    "peerDependenciesMeta": {
+        "@types/react": {
+            "optional": true
+        }
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "template": "node",
+    "view": "browser",
+    "container": {
+        "port": 3030,
+        "startScript": "npm start"
+    }
+}

@@ -1,0 +1,101 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.1",
+        "title": "Icon1 API",
+        "license": {
+            "name": "UNLICENSED"
+        }
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "home",
+                "operationId": "home",
+                "parameters": [],
+                "x-google-backend": {
+                    "address": "%GCF_URL%",
+                    "path_translation": "CONSTANT_ADDRESS"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Home"
+                    }
+                }
+            }
+        },
+        "/icons": {
+            "get": {
+                "summary": "Icons Provider List",
+                "operationId": "icons-provider-list",
+                "x-google-backend": {
+                    "address": "%GCF_URL%",
+                    "path_translation": "APPEND_PATH_TO_ADDRESS"
+                },
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Listing providers"
+                    }
+                }
+            }
+        },
+        "/icons/{provider}": {
+            "get": {
+                "summary": "Icons List",
+                "operationId": "icons-list",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "provider",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "x-google-backend": {
+                    "address": "%GCF_URL%",
+                    "path_translation": "APPEND_PATH_TO_ADDRESS"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Listing Icons of a provider"
+                    }
+                }
+            }
+        },
+        "/icon/{provider}/{icon}": {
+            "get": {
+                "summary": "Icon View",
+                "operationId": "icon-view",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "provider",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "icon",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "variant",
+                        "type": "string"
+                    }
+                ],
+                "x-google-backend": {
+                    "address": "%GCF_URL%",
+                    "path_translation": "APPEND_PATH_TO_ADDRESS"
+                },
+                "responses": {
+                    "200": {
+                        "description": "View an Icon as JSON or as SVG"
+                    }
+                }
+            }
+        }
+    }
+}

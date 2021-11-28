@@ -1,0 +1,36 @@
+DEPLOY_SCRIBBLE.md
+
+# env variables
+.env
+.npmrc
+
+# default upload dir
+/upload
+
+# default tmp dir
+/tmp
+/dist
+
+# Composer
+/vendor
+
+# NodeJS
+node_modules
+
+lerna-debug.log
+
+# Webpack profiling
+profile.json
+
+
+# Mac
+.DS_Store
+
+#
+## JetBrains IDE's
+
+.idea/
+*.iml
+*.iws
+
+/coverage
