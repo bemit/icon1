@@ -1,6 +1,6 @@
 {
     "name": "@icon1/mui",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "",
     "homepage": "https://icon1.bemit.codes",
     "author": "Michael Becker <michael@bemit.codes>",
@@ -23,33 +23,33 @@
         "dtsgen": "tsc -d --emitDeclarationOnly --pretty && merge-dirs build/dts/icon1-mui/src build && rm -rf build/dts && rm -rf build/**/*.test.*",
         "__release": "cp package.json build/ && cp package-lock.json build/ && cp README.md build/ && npm publish build"
     },
-    "dependencies": {
-        "react-uid": "^2.3.0",
-        "react-window": "^1.8.0"
-    },
     "devDependencies": {
-        "@icon1/core": "~0.0.2",
-        "@icon1/react": "~0.0.2",
-        "@material-ui/core": "^4.12.0",
-        "@material-ui/icons": "^5.0.0-beta.5",
+        "@icon1/core": "~0.0.3",
+        "@icon1/react": "~0.0.3",
+        "@material-ui/core": "^4.8.0",
+        "@material-ui/icons": "^4.8.0",
         "@material-ui/lab": "^4.0.0-alpha.60",
         "@types/react": "^16.8.6 || ^17.0.0",
-        "@types/react-color": "^3.0.0",
         "@types/react-window": "^1.8.0",
-        "react": "^16.12",
-        "react-dom": "^16.12"
+        "react-window": "^1.5.0",
+        "react": "^16.12"
     },
     "peerDependencies": {
-        "@icon1/core": "~0.0.2",
-        "@icon1/react": "~0.0.2",
-        "@material-ui/core": "^4.12.0",
-        "@material-ui/icons": "^5.0.0-beta.5",
+        "@icon1/core": "~0.0.3",
+        "@icon1/react": "~0.0.3",
+        "react-window": "^1.5.0",
+        "@material-ui/core": "^4.8.0",
+        "@material-ui/icons": "^4.8.0",
         "@material-ui/lab": "^4.0.0-alpha.60",
         "@types/react": "^16.8.6 || ^17.0.0",
+        "@types/react-window": "^1.8.0",
         "react": "^16.8 || ^17.0"
     },
     "peerDependenciesMeta": {
         "@types/react": {
+            "optional": true
+        },
+        "@types/react-window": {
             "optional": true
         }
     },

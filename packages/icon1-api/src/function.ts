@@ -57,7 +57,8 @@ routes.forEach(([method, path, handler]) => {
     method === DELETE && app.delete(path, handle)
 })
 
-app.use('/', express.static(__dirname + '/demo'))
+// caching `3h`
+app.use('/', express.static(__dirname + '/demo', {maxAge: 3600 * 1000 * 3}))
 
 app.use(ErrorHandlerMiddleware)
 

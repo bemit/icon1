@@ -20,7 +20,7 @@ export const Layout: React.ComponentType<{}> = () => {
         <div style={{padding: '9px 12px', display: 'flex'}}>
             <h1 style={{fontWeight: 600, fontSize: '1.125rem', marginBottom: 8, display: 'flex'}}>
                 <Logo/>
-                Icon1
+                <span style={{paddingLeft: 6}}>Icon1</span>
             </h1>
             <p style={{
                 fontWeight: 300, fontSize: '0.85rem',

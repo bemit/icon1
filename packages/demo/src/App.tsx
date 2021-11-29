@@ -13,10 +13,11 @@ export const App: React.ComponentType<{}> = () => {
     React.useEffect(() => {
         sT({...theme[themeId]})
     }, [sT, themeId])
+    const api = process.env.REACT_APP_ICON1_API as string
 
     return <MuiThemeProvider theme={t}>
         <CssBaseline/>
-        <Icon1Provider api={'http://localhost:3030'}>
+        <Icon1Provider api={api}>
             <Layout/>
         </Icon1Provider>
     </MuiThemeProvider>

@@ -24,6 +24,29 @@
                 }
             }
         },
+        "/{files=**}": {
+            "get": {
+                "summary": "home-files",
+                "operationId": "home-files",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "files",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "x-google-backend": {
+                    "address": "%GCF_URL%",
+                    "path_translation": "APPEND_PATH_TO_ADDRESS"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Home"
+                    }
+                }
+            }
+        },
         "/icons": {
             "get": {
                 "summary": "Icons Provider List",

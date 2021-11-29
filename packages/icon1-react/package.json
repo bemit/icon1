@@ -1,6 +1,6 @@
 {
     "name": "@icon1/react",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "",
     "homepage": "https://icon1.bemit.codes",
     "author": "Michael Becker <michael@bemit.codes>",
@@ -24,13 +24,12 @@
         "__release": "cp package.json build/ && cp package-lock.json build/ && cp README.md build/ && npm publish build"
     },
     "devDependencies": {
-        "@icon1/core": "~0.0.2",
+        "@icon1/core": "~0.0.3",
         "@types/react": "^16.8.6 || ^17.0.0",
-        "react": "^16.12",
-        "react-dom": "^16.12"
+        "react": "^16.12"
     },
     "peerDependencies": {
-        "@icon1/core": "~0.0.2",
+        "@icon1/core": "~0.0.3",
         "@types/react": "^16.8.6 || ^17.0.0",
         "react": "^16.8 || ^17.0"
     },

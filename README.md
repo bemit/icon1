@@ -6,13 +6,13 @@
 
 Open-Source Icon API and Picker.
 
-API with pluggable icon providers, ready to host on e.g. Google Cloud Functions.
+API with pluggable icon providers, ready to host on e.g. Google Cloud Functions, see [DEPLOY.md](DEPLOY.md).
 
 Packages:
 
-- `@icon1/core`: plain JS API connectors + typings
-- `@icon1/react`: reusable API hooks, icon provider, and icon embed component
-- `@icon1/mui`: [Material-UI](https://github.com/mui-org/material-ui) based icon picker
+- [![npm (scoped)](https://img.shields.io/npm/v/@icon1/core?style=flat-square)](https://www.npmjs.com/package/@icon1/core) `@icon1/core`: plain JS API connectors + typings
+- [![npm (scoped)](https://img.shields.io/npm/v/@icon1/react?style=flat-square)](https://www.npmjs.com/package/@icon1/react) `@icon1/react`: reusable API hooks, icon provider, and icon embed component
+- [![npm (scoped)](https://img.shields.io/npm/v/@icon1/mui?style=flat-square)](https://www.npmjs.com/package/@icon1/mui) `@icon1/mui`: [Material-UI](https://github.com/mui-org/material-ui) based icon picker
 
 ## API
 
@@ -36,8 +36,8 @@ Packages:
           }
       }
       ```
-- `/icon/{provider}/{icon}.svg` returns one specific icon as SVG
-    - result is plain SVG with respective headers
+    - for plain SVG just add `.svg` at the end
+        - `/icon/{provider}/{icon}.svg` returns one specific icon as SVG
 
 #### Example Icon Data
 
@@ -91,6 +91,40 @@ node build/cli build-icon-list
 ```
 
 > todo: currently hard coded in [`packages/icon1-api/src/icon1/iconListMaker.ts`](./packages/icon1-api/src/icon1/iconListMaker.ts) and is not dynamically using providers
+
+## `@icon1/core`
+
+Basic package with universal typings and a `fetch` based API connector.
+
+```typescript
+import { Icon1Icon, Icon1IconDetails, Icon1ListBuilt } from '@icon1/core/Icon1Types'
+import { Icon1Loader } from '@icon1/core/Icon1Loader'
+
+const api = 'http://localhost:3030'
+Icon1Loader.loadIcon(api, 'simple-icons', '3m', undefined).then(r => console.log(r))
+Icon1Loader.loadIcons(api, 'simple-icons').then(r => console.log(r))
+```
+
+## `@icon1/react`
+
+Basic package for React with provider, hooks and special embed.
+
+```typescript
+import { Icon1Embed } from '@icon1/react/Icon1Embed'
+import { Icon1Provider, useIcon1 } from '@icon1/react/Icon1Provider'
+import { IconEmbed } from '@icon1/react/IconEmbed'
+import { useIcon1Loader } from '@icon1/react/useIcon1Loader'
+import { withIcon } from '@icon1/react/withIcon'
+import { Icon1Loader } from '@icon1/core/Icon1Loader'
+```
+
+## `@icon1/mui`
+
+Material-UI icon picker.
+
+```typescript
+import { Icon1Picker } from '@icon1/mui/Icon1Picker'
+```
 
 ## Versions
 

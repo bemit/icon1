@@ -43,3 +43,11 @@ gcloud api-gateway gateways update "icon1-api-gw" --api="icon1-api" --api-config
 # delete previous config
 gcloud api-gateway api-configs delete "icon1-api-v0-0-0-0" --api="icon1-api" --project=gcloud-project
 ```
+
+### CDN
+
+[Google How-To](https://cloud.google.com/api-gateway/docs/gateway-serverless-neg)
+
+This does not work 1:1, needs some adjustments depending on your systems/requirements.
+
+With a configured loadbalancer, it's easy to enable Google CDN.

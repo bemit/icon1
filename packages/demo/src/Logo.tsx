@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Logo: React.ComponentType<{}> = () => {
-    return <svg x="0px" y="0px" viewBox="0 0 256 256" style={{width: '1.5rem', height: '1.5rem'}}>
+    return <svg x="0px" y="0px" viewBox="0 0 256 256" style={{width: '1.5rem', height: '1.5rem', background: '#ffffff', borderRadius: 4}}>
         <g>
             <g>
                 <path fill="#4815C7" d="M96.5,116.4v83.5h55.4v32.9H57.7l-0.2-32.9l0,0V116"/>

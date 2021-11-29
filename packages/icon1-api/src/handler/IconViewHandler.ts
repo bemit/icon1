@@ -45,7 +45,8 @@ const IconViewHandler: ExpressHandler = async(req, res) => {
         }
         throw e
     }
-    res.setHeader('Cache-Control', 'public, max-age=604800, immutable')
+    // caching 2 days
+    res.setHeader('Cache-Control', 'public, max-age=1209600, immutable')
     if(!asSvg) {
         return res.json({
             icon: icon,

@@ -19,14 +19,14 @@ const handleListProvider = async(iconService: IconService) => {
 const IconsListHandler: ExpressHandler = async(req, res) => {
     if(req.params.provider) {
         const providerList = await handleListIcons(await ServiceService.get('IconService'), req.params.provider)
-        res.setHeader('Cache-Control', 'public, max-age=604800, immutable')
+        res.setHeader('Cache-Control', 'public, max-age=259200, immutable')
         return res.json({
             icons: providerList.icons,
             variants: providerList.variants,
         })
     } else {
         const provider = await handleListProvider(await ServiceService.get('IconService'))
-        res.setHeader('Cache-Control', 'public, max-age=604800, immutable')
+        res.setHeader('Cache-Control', 'public, max-age=259200, immutable')
         return res.json({
             provider: provider,
         })
