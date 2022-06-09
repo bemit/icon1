@@ -22,6 +22,8 @@ export const IconPickerCustom: React.ComponentType<{
     onSelect: Icon1PickerProps['onSelect']
     color?: string
     setColor: (color: string) => void
+    variant?: string
+    setVariant: (variant?: string) => void
     validColor?: boolean
 }> = (
     {
@@ -30,13 +32,13 @@ export const IconPickerCustom: React.ComponentType<{
         color,
         setColor,
         validColor,
+        setVariant, variant,
     },
 ) => {
     const uid = useUID()
     const {variants} = useIcon1()
     const params = new URLSearchParams(window.location.search)
     const [provider, setProvider] = React.useState<'simple-icons' | 'material-ui'>(params.get('provider') === 'material-ui' ? 'material-ui' : 'simple-icons')
-    const [variant, setVariant] = React.useState<string | undefined>(params.get('variant') || undefined)
     const [openSearch, setOpenSearch] = React.useState<boolean>(false)
 
     const [activeSearch, setActiveSearch] = React.useState(params.get('search') || '')

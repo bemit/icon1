@@ -15,6 +15,7 @@ export const IconView: React.ComponentType<{}> = () => {
     const [openDetails, setOpenDetails] = React.useState<boolean>(false)
     const initialParams = React.useMemo(() => new URLSearchParams(window.location.search) || undefined, [])
     const {iconDetails} = useIcon1()
+    const [variant, setVariant] = React.useState<string | undefined>(initialParams.get('variant') || undefined)
     const [selected, setSelected] = React.useState<{
         id?: string
         provider?: string
@@ -37,7 +38,7 @@ export const IconView: React.ComponentType<{}> = () => {
         window.history.replaceState({}, '', window.location.pathname + '?' + params.toString())
         setColor(color)
     }
-    const details = iconDetails?.[selected.provider as string]?.[selected.id as string]?.[selected.variant || 'default']
+    const details = iconDetails?.[selected.provider as string]?.[selected.id as string]?.[variant || 'default']
 
     return <Box style={{
         display: 'flex',
@@ -59,6 +60,8 @@ export const IconView: React.ComponentType<{}> = () => {
                     setColor={onColor}
                     color={color}
                     validColor={validColor}
+                    variant={variant}
+                    setVariant={setVariant}
                     onSelect={(provider, iconDetails, variant) => {
                         setSelected(s => s?.id === iconDetails.id && s?.variant === variant ? {} : {
                             provider: provider,
@@ -69,6 +72,7 @@ export const IconView: React.ComponentType<{}> = () => {
 
                         const params = new URLSearchParams(window.location.search)
                         params.set('icon', iconDetails.id)
+                        params.set('provider', provider)
                         if(iconDetails.colorDefault) {
                             params.set('color', iconDetails.colorDefault.slice(1))
                         }
@@ -91,7 +95,7 @@ export const IconView: React.ComponentType<{}> = () => {
                         <Icon1Embed
                             provider={selected.provider}
                             id={selected.id}
-                            variant={selected.variant}
+                            variant={variant}
                             fontSize={'inherit'}
                             color={validColor ? color : undefined}
                         />
@@ -111,9 +115,9 @@ export const IconView: React.ComponentType<{}> = () => {
                         api + '/icon/' +
                         selected.provider + '/' +
                         selected.id + '.svg' +
-                        (selected.variant || color ? '?' : '') +
-                        (selected.variant ? 'variant=' + selected.variant : '') +
-                        (selected.variant && color ? '&' : '') +
+                        (variant || color ? '?' : '') +
+                        (variant ? 'variant=' + variant : '') +
+                        (variant && color ? '&' : '') +
                         (color ? 'color=' + color.slice(1) : '')
                     }
                     rows={1} readOnly

@@ -1,6 +1,6 @@
 {
     "name": "@icon1/mui",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Icon Picker built with MUI for Material-UI and any other icon library.",
     "homepage": "https://icon1.bemit.codes",
     "author": "Michael Becker <michael@bemit.codes>",
@@ -32,7 +32,6 @@
         "@icon1/react": "~0.0.4",
         "@mui/material": "^5.1",
         "@mui/icons-material": "^5.1",
-        "@mui/lab": "^5.0.0-alpha.65",
         "@types/react": "^17.0 || ^18.0",
         "react": "^17.0",
         "@types/react-window": "^1.8.0",
@@ -41,13 +40,12 @@
     "peerDependencies": {
         "@icon1/core": "~0.0.3",
         "@icon1/react": "~0.0.4",
+        "@types/react-window": "^1.8.0",
         "react-window": "^1.5.0",
         "@mui/material": "^5.1",
         "@mui/icons-material": "^5.1",
-        "@mui/lab": "^5.0.0-alpha.65",
         "@types/react": "^17.0 || ^18.0",
-        "react": "^17.0 || ^18.0",
-        "@types/react-window": "^1.8.0"
+        "react": "^17.0 || ^18.0"
     },
     "peerDependenciesMeta": {
         "@types/react": {
