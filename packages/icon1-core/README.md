@@ -12,5 +12,5 @@ This project is free software distributed under the **MIT License**.
 
 See: [LICENSE](https://github.com/bemit/icon1/blob/master/LICENSE).
 
-© 2021 [Michael Becker](https://mlbr.xyz)
+© 2021 [Michael Becker](https://i-am-digital.eu)
 

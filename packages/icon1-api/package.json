@@ -1,9 +1,9 @@
 {
     "name": "@icon1/api",
     "private": true,
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "scribble",
-    "author": "Michael Becker https://mlbr.xyz",
+    "author": "Michael Becker https://i-am-digital.eu",
     "license": "MIT",
     "type": "module",
     "dependencies": {

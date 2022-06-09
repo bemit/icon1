@@ -47,6 +47,16 @@ const IconViewHandler: ExpressHandler = async(req, res) => {
     }
     // caching 2 days
     res.setHeader('Cache-Control', 'public, max-age=1209600, immutable')
+    const color = req.query?.['color'] as string
+    if(color) {
+        if(color.length !== 6 || !color.match(/^([0-9a-f]{3}|[0-9a-f]{6})$/i)) {
+            return res.status(400).json({
+                error: 'color-not-valid-6-hex',
+                code: 400,
+            })
+        }
+        icon.data = icon.data.replace(/<svg /, '<svg style="color: #' + color + '; fill: currentColor;" ')
+    }
     if(!asSvg) {
         return res.json({
             icon: icon,

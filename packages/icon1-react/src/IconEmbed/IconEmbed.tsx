@@ -6,6 +6,7 @@ export interface IconEmbedBaseProps {
     title?: string
     color?: string
     fontSize?: string
+    display?: React.CSSProperties['display']
 }
 
 export const IconEmbedBase: React.ComponentType<IconEmbedBaseProps> = (
@@ -14,6 +15,7 @@ export const IconEmbedBase: React.ComponentType<IconEmbedBaseProps> = (
         title,
         fontSize = 'default',
         color = 'inherit',
+        display = 'inline-block',
     },
 ) => {
     const fontSizeCss =
@@ -26,7 +28,7 @@ export const IconEmbedBase: React.ComponentType<IconEmbedBaseProps> = (
                     fontSize === 'large' ?
                         '2.1875rem' : fontSize
     return <span style={{
-        display: 'inline-block',
+        display: display,
         // todo: check where mui saves this size and reuse it
         fontSize: fontSizeCss,
     }}>

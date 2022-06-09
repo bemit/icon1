@@ -1,6 +1,5 @@
 import express from 'express'
-import cors, { CorsOptions, CorsOptionsDelegate } from 'cors'
-import { corsConfig, routes } from './routes.js'
+import { routes } from './routes.js'
 import {
     DELETE, GET, POST, PUT,
     ErrorHandlerMiddleware,
@@ -18,20 +17,20 @@ services()
 
 const app = express()
 
-app.use(cors({
-    allowedHeaders: corsConfig.allowedHeaders,
-    origin: function(origin: string, callback: (arg0: null, arg1: boolean) => void) {
-        callback(
-            null,
-            Boolean(
-                origin && (
-                    corsConfig.allowedOrigins.includes(origin) ||
-                    corsConfig.allowedOrigins.includes('*')
-                )
-            )
-        )
-    },
-} as CorsOptions | CorsOptionsDelegate))
+app.use(function corsMiddleware(_req: express.Request, res: express.Response, next: () => void) {
+    // using a custom cors middleware, as the `express.cors` isn't CDN compatible (doesn't send headers when not needed)
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', [
+        'Content-Type',
+        'Cache-Control',
+        'Origin',
+        'Accept',
+        'X-Cloud-Trace-Context',
+        'X-Performance',
+    ].join(', '))
+
+    next()
+})
 
 app.use(function profilerMiddleware(_req: express.Request, res: express.Response, next: () => void) {
     const startTime = process.hrtime()

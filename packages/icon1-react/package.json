@@ -1,11 +1,13 @@
 {
     "name": "@icon1/react",
-    "version": "0.0.3",
-    "description": "",
+    "version": "0.0.4",
+    "description": "Icon Picker library for any icon library.",
     "homepage": "https://icon1.bemit.codes",
     "author": "Michael Becker <michael@bemit.codes>",
     "license": "MIT",
     "keywords": [
+        "icons",
+        "icon-lib",
         "react-component",
         "react"
     ],
@@ -25,13 +27,13 @@
     },
     "devDependencies": {
         "@icon1/core": "~0.0.3",
-        "@types/react": "^16.8.6 || ^17.0.0",
-        "react": "^16.12"
+        "@types/react": "^17.0 || ^18.0",
+        "react": "^17.0"
     },
     "peerDependencies": {
         "@icon1/core": "~0.0.3",
-        "@types/react": "^16.8.6 || ^17.0.0",
-        "react": "^16.8 || ^17.0"
+        "@types/react": "^17.0 || ^18.0",
+        "react": "^17.0 || ^18.0"
     },
     "peerDependenciesMeta": {
         "@types/react": {

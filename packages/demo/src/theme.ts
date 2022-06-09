@@ -1,5 +1,5 @@
-import createMuiTheme, { Theme } from '@material-ui/core/styles/createTheme'
-import { getContrastRatio } from '@material-ui/core'
+import createMuiTheme, { Theme } from '@mui/material/styles/createTheme'
+// import { getContrastRatio } from '@mui/material'
 
 const universal = {
     palette: {
@@ -46,11 +46,11 @@ const universal = {
     },
 }
 
-export const customTheme = (primary: string): {
+export const customTheme = (primaryDark: string, primaryLight: string): {
     dark: Theme
     light: Theme
 } => {
-    const getContrastText = (background: string) => {
+    /*const getContrastText = (background: string) => {
         const contrastText =
             getContrastRatio(background, '#c6c4c4') >= 2 ?
                 getContrastRatio(background, '#c6c4c4') <= 3 ?
@@ -72,15 +72,15 @@ export const customTheme = (primary: string): {
         }
 
         return contrastText
-    }
+    }*/
     const themeDark = createMuiTheme({
         ...universal,
         palette: {
             ...universal.palette,
-            type: 'dark',
+            mode: 'dark',
             primary: {
                 //light: '#43c0d5',
-                main: primary,
+                main: primaryDark,
                 //dark: '#033944',
             },
             secondary: {
@@ -109,20 +109,7 @@ export const customTheme = (primary: string): {
             action: {
                 hoverOpacity: 0.2,
             },
-            getContrastText: getContrastText,
-        },
-        overrides: {
-            MuiInputLabel: {
-                root: {
-                    //variant: '#6431f7',
-                    '&$focused': {
-                        color: '#7649f6',
-                    },
-                    '&$error': {
-                        color: '#b71c10',
-                    },
-                },
-            },
+            // getContrastText: getContrastText,
         },
     })
 
@@ -130,9 +117,9 @@ export const customTheme = (primary: string): {
         ...universal,
         palette: {
             ...universal.palette,
-            type: 'light',
+            mode: 'light',
             primary: {
-                main: primary,
+                main: primaryLight,
                 //dark: '#033944',
             },
             secondary: {
@@ -161,7 +148,7 @@ export const customTheme = (primary: string): {
             action: {
                 hoverOpacity: 0.2,
             },
-            getContrastText: getContrastText,
+            // getContrastText: getContrastText,
         },
     })
 

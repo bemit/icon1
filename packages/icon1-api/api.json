@@ -14,7 +14,7 @@
                 "operationId": "home",
                 "parameters": [],
                 "x-google-backend": {
-                    "address": "%GCF_URL%",
+                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
                     "path_translation": "CONSTANT_ADDRESS"
                 },
                 "responses": {
@@ -37,7 +37,7 @@
                     }
                 ],
                 "x-google-backend": {
-                    "address": "%GCF_URL%",
+                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
                     "path_translation": "APPEND_PATH_TO_ADDRESS"
                 },
                 "responses": {
@@ -52,13 +52,27 @@
                 "summary": "Icons Provider List",
                 "operationId": "icons-provider-list",
                 "x-google-backend": {
-                    "address": "%GCF_URL%",
+                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
                     "path_translation": "APPEND_PATH_TO_ADDRESS"
                 },
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Listing providers"
+                    }
+                }
+            },
+            "options": {
+                "summary": "icons-provider-list-cors",
+                "operationId": "icons-provider-list-cors",
+                "parameters": [],
+                "x-google-backend": {
+                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "path_translation": "CONSTANT_ADDRESS"
+                },
+                "responses": {
+                    "200": {
+                        "description": "icons-provider-list-cors"
                     }
                 }
             }
@@ -76,12 +90,33 @@
                     }
                 ],
                 "x-google-backend": {
-                    "address": "%GCF_URL%",
+                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
                     "path_translation": "APPEND_PATH_TO_ADDRESS"
                 },
                 "responses": {
                     "200": {
                         "description": "Listing Icons of a provider"
+                    }
+                }
+            },
+            "options": {
+                "summary": "icons-list",
+                "operationId": "icons-list-cors",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "provider",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "x-google-backend": {
+                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "path_translation": "CONSTANT_ADDRESS"
+                },
+                "responses": {
+                    "200": {
+                        "description": "icons-list-cors"
                     }
                 }
             }
@@ -110,12 +145,44 @@
                     }
                 ],
                 "x-google-backend": {
-                    "address": "%GCF_URL%",
+                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
                     "path_translation": "APPEND_PATH_TO_ADDRESS"
                 },
                 "responses": {
                     "200": {
                         "description": "View an Icon as JSON or as SVG"
+                    }
+                }
+            },
+            "options": {
+                "summary": "icon-view-cors",
+                "operationId": "icon-view-cors",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "provider",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "icon",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "variant",
+                        "type": "string"
+                    }
+                ],
+                "x-google-backend": {
+                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "path_translation": "CONSTANT_ADDRESS"
+                },
+                "responses": {
+                    "200": {
+                        "description": "icon-view-cors"
                     }
                 }
             }

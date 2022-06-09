@@ -8,8 +8,8 @@ This project is free software distributed under the **MIT License**.
 
 See: [LICENSE](LICENSE).
 
-© 2021 bemit UG (haftungsbeschränkt)
+© 2022 [bemit](https://bemit.codes)
 
 ***
 
-Created by [Michael Becker](https://mlbr.xyz)
+Created by [Michael Becker](https://i-am-digital.eu)

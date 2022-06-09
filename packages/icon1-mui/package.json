@@ -1,11 +1,15 @@
 {
     "name": "@icon1/mui",
-    "version": "0.0.3",
-    "description": "",
+    "version": "0.0.4",
+    "description": "Icon Picker built with MUI for Material-UI and any other icon library.",
     "homepage": "https://icon1.bemit.codes",
     "author": "Michael Becker <michael@bemit.codes>",
     "license": "MIT",
     "keywords": [
+        "icon-picker",
+        "mui-icon-picker",
+        "material-ui",
+        "mui",
         "react-component",
         "react"
     ],
@@ -25,25 +29,25 @@
     },
     "devDependencies": {
         "@icon1/core": "~0.0.3",
-        "@icon1/react": "~0.0.3",
-        "@material-ui/core": "^4.8.0",
-        "@material-ui/icons": "^4.8.0",
-        "@material-ui/lab": "^4.0.0-alpha.60",
-        "@types/react": "^16.8.6 || ^17.0.0",
+        "@icon1/react": "~0.0.4",
+        "@mui/material": "^5.1",
+        "@mui/icons-material": "^5.1",
+        "@mui/lab": "^5.0.0-alpha.65",
+        "@types/react": "^17.0 || ^18.0",
+        "react": "^17.0",
         "@types/react-window": "^1.8.0",
-        "react-window": "^1.5.0",
-        "react": "^16.12"
+        "react-window": "^1.5.0"
     },
     "peerDependencies": {
         "@icon1/core": "~0.0.3",
-        "@icon1/react": "~0.0.3",
+        "@icon1/react": "~0.0.4",
         "react-window": "^1.5.0",
-        "@material-ui/core": "^4.8.0",
-        "@material-ui/icons": "^4.8.0",
-        "@material-ui/lab": "^4.0.0-alpha.60",
-        "@types/react": "^16.8.6 || ^17.0.0",
-        "@types/react-window": "^1.8.0",
-        "react": "^16.8 || ^17.0"
+        "@mui/material": "^5.1",
+        "@mui/icons-material": "^5.1",
+        "@mui/lab": "^5.0.0-alpha.65",
+        "@types/react": "^17.0 || ^18.0",
+        "react": "^17.0 || ^18.0",
+        "@types/react-window": "^1.8.0"
     },
     "peerDependenciesMeta": {
         "@types/react": {

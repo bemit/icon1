@@ -2,11 +2,12 @@ import React, { memo } from 'react'
 import { areEqual, FixedSizeList } from 'react-window'
 import { useIcon1 } from '@icon1/react/Icon1Provider'
 import { Icon1Embed } from '@icon1/react/Icon1Embed'
-import Box from '@material-ui/core/Box'
-import Button from '@material-ui/core/Button'
-import Skeleton from '@material-ui/lab/Skeleton'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Skeleton from '@mui/material/Skeleton'
 import { useIcon1Loader } from '@icon1/react/useIcon1Loader/useIcon1Loader'
 import { Icon1IconDetails } from '@icon1/core/Icon1Types'
+import { useTheme } from '@mui/material'
 
 export interface Icon1PickerProps {
     provider: string
@@ -80,6 +81,7 @@ export const Icon1PickerBase: React.ComponentType<Icon1PickerProps> = (
     ])
 
     return filteredIconList ?
+        /* @ts-ignore */
         <FixedSizeList
             itemCount={Number((filteredIconList ? filteredIconList.length / rowSize : 0).toFixed(0)) || 1}
             height={height}
@@ -89,10 +91,10 @@ export const Icon1PickerBase: React.ComponentType<Icon1PickerProps> = (
         >
             {Row}
         </FixedSizeList> : <>
-            <Skeleton variant="rect" animation="wave" width={width} height={30} style={{margin: '8px 0 4px 0'}}/>
-            <Skeleton variant="rect" animation="wave" width={width} height={30} style={{margin: '8px 0 4px 0'}}/>
-            <Skeleton variant="rect" animation="wave" width={width} height={30} style={{margin: '8px 0 4px 0'}}/>
-            <Skeleton variant="rect" animation="wave" width={width} height={30} style={{margin: '8px 0 4px 0'}}/>
+            <Skeleton variant="rectangular" animation="wave" width={width} height={30} style={{margin: '8px 0 4px 0'}}/>
+            <Skeleton variant="rectangular" animation="wave" width={width} height={30} style={{margin: '8px 0 4px 0'}}/>
+            <Skeleton variant="rectangular" animation="wave" width={width} height={30} style={{margin: '8px 0 4px 0'}}/>
+            <Skeleton variant="rectangular" animation="wave" width={width} height={30} style={{margin: '8px 0 4px 0'}}/>
         </>
 }
 
@@ -135,10 +137,11 @@ const RowItemBase: React.ComponentType<{
         selected,
     },
 ) => {
+    const {palette} = useTheme()
     return <Button
         onClick={() => onSelect(provider, icon, variant)}
         variant={selected ? 'outlined' : undefined}
-        color={selected ? 'primary' : 'default'}
+        color={selected ? 'primary' : 'inherit'}
         style={{
             minWidth: 30,
             borderWidth: 1,
@@ -146,6 +149,7 @@ const RowItemBase: React.ComponentType<{
             borderStyle: 'solid',
             padding: 0,
             flexGrow: 1,
+            color: selected ? palette?.primary?.main : palette?.text.primary,
         }}
     >
         <Icon1Embed
@@ -155,6 +159,7 @@ const RowItemBase: React.ComponentType<{
             variant={variant}
             title={icon.title}
             color={'inherit'}
+            display={'flex'}
         />
     </Button>
 }

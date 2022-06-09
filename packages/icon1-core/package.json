@@ -5,10 +5,6 @@
     "homepage": "https://icon1.bemit.codes",
     "author": "Michael Becker <michael@bemit.codes>",
     "license": "MIT",
-    "keywords": [
-        "react-component",
-        "react"
-    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/bemit/icon1.git",

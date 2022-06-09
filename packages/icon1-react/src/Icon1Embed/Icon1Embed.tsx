@@ -12,6 +12,7 @@ export interface Icon1EmbedLoaderProps {
     fontSize?: string
     color?: string
     IconEmbed: React.ComponentType<IconEmbedBaseProps>
+    display?: React.CSSProperties['display']
 }
 
 export const Icon1Embed: React.ComponentType<Omit<Icon1EmbedLoaderProps, 'IconEmbed'>> = (
@@ -22,12 +23,14 @@ export const Icon1Embed: React.ComponentType<Omit<Icon1EmbedLoaderProps, 'IconEm
         color,
         title,
         fontSize,
+        display,
     },
 ) => {
     return <LoaderIconBase
         fontSize={fontSize}
         title={title}
         color={color}
+        display={display}
         iconRef={{
             icon: id,
             provider: provider,

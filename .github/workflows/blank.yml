@@ -45,7 +45,8 @@ jobs:
                 #env:
                 run: |
                     npm ci
-                    npm run bootstrap && npm run hoist
+                    npm run bootstrap
+                    npm run link
                     npm test
                     npm run build
 

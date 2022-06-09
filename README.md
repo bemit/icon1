@@ -1,7 +1,7 @@
 # Icon1
 
 [![Github actions Build](https://github.com/bemit/icon1/actions/workflows/blank.yml/badge.svg)](https://github.com/bemit/icon1/actions)
-[![codecov](https://codecov.io/gh/bemit/icon1/branch/main/graph/badge.svg?token=OX9UOZPMRF)](https://codecov.io/gh/bemit/icon1)
+[![codecov](https://codecov.io/gh/bemit/icon1/branch/master/graph/badge.svg?token=BZMO06J5U3)](https://codecov.io/gh/bemit/icon1)
 ![Typed](https://flat.badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
 
 Open-Source Icon API and Picker.
@@ -16,6 +16,12 @@ Packages:
 
 ## API
 
+Ready and CDN-enabled: [icon1.bemit.codes](https://icon1.bemit.codes)
+
+> ⚠️ **Currently** there are no usage restrictions, depending on the actual occurring costs this may change anytime.
+>
+> To be safe, host it on your own.
+
 ### Endpoints
 
 - `/icons` returns all available provider
@@ -26,7 +32,8 @@ Packages:
 - `/icon/{provider}/{icon}` returns one specific icon as JSON
     - query params:
         - `variant`: optional variant, if supported by provider/icon
-    - result:
+        - `color`: optional color, use 6 digits hex (without `#`)
+    - minimum result:
       ```typescript
       interface Result {
           icon: {
@@ -145,11 +152,9 @@ This project adheres to [semver](https://semver.org/), until `1.0.0` and beginni
 
 ## License
 
-This project is free software distributed under the **MIT License**.
+This project is free software distributed under the [**MIT License**](LICENSE).
 
-See: [LICENSE](LICENSE).
-
-© 2021 [Michael Becker](https://mlbr.xyz)
+© 2022 [bemit](https://bemit.codes), [Michael Becker](https://i-am-digital.eu)
 
 ### License: Icons
 
@@ -165,6 +170,6 @@ Please read their [disclaimer regarding brand use](https://github.com/simple-ico
 
 Material design icons are created by Google.
 
-    We have made these icons available for you to incorporate into your products under the [Apache License Version 2.0](https://github.com/marella/material-design-icons/blob/main/svg/LICENSE). Feel free to remix and re-share these icons and documentation in your products. We'd love attribution in your app's about screen, but it's not required.
+We have made these icons available for you to incorporate into your products under the [Apache License Version 2.0](https://github.com/marella/material-design-icons/blob/main/svg/LICENSE). Feel free to remix and re-share these icons and documentation in your products. We'd love attribution in your app's about screen, but it's not required.
 
 > imported using npm module [@material-design-icons/svg](https://www.npmjs.com/package/@material-design-icons/svg)

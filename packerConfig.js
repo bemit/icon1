@@ -1,6 +1,6 @@
 const path = require('path');
-const {buildExternal, packer, webpack} = require('lerna-packer');
-
+const {packer, webpack} = require('lerna-packer');
+const {makeModulePackageJson, copyRootPackageJson, transformForEsModule} = require('lerna-packer/packer/modulePackages');
 
 packer(
     {
@@ -8,12 +8,11 @@ packer(
             demo: {
                 root: path.resolve(__dirname, 'packages', 'demo'),
                 template: path.resolve(__dirname, 'packages', 'demo/public/index.html'),
-                publicPath: path.resolve(__dirname, 'packages', 'demo/public'),// dev-server
+                contentBase: path.resolve(__dirname, 'packages', 'demo/public'),// dev-server
                 port: 3000,
                 main: path.resolve(__dirname, 'packages', 'demo/src/index.js'),
                 dist: path.resolve(__dirname, 'dist', 'demo'),
                 servedPath: '/',// todo: make package.json homepage dependent,
-                vendors: [],
                 plugins: [
                     new webpack.DefinePlugin({
                         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -37,30 +36,41 @@ packer(
                 name: '@icon1/core',
                 root: path.resolve(__dirname, 'packages', 'icon1-core'),
                 entry: path.resolve(__dirname, 'packages', 'icon1-core/src/'),
-                externals: {
-                    react: buildExternal('react'),
-                    'react-dom': buildExternal('react-dom'),
-                },
             },
             icon1Mui: {
                 name: '@icon1/mui',
                 root: path.resolve(__dirname, 'packages', 'icon1-mui'),
                 entry: path.resolve(__dirname, 'packages', 'icon1-mui/src/'),
-                externals: {
-                    react: buildExternal('react'),
-                    'react-dom': buildExternal('react-dom'),
-                },
             },
             icon1React: {
                 name: '@icon1/react',
                 root: path.resolve(__dirname, 'packages', 'icon1-react'),
                 entry: path.resolve(__dirname, 'packages', 'icon1-react/src/'),
-                externals: {
-                    react: buildExternal('react'),
-                    'react-dom': buildExternal('react-dom'),
-                },
             },
         },
     },
     __dirname,
-);
+    {
+        pathBuild: 'build',
+        pathPackages: 'packages',
+        afterEsModules: (packages, pathBuild) => {
+            return Promise.all([
+                makeModulePackageJson(transformForEsModule)(packages, pathBuild),
+                copyRootPackageJson()(packages, pathBuild),
+            ])
+        },
+    },
+)
+    .then(([execs, elapsed]) => {
+        if(execs.indexOf('doServe') !== -1) {
+            console.log('\x1b[34m[packer] is now serving (after ' + elapsed + 'ms)\x1b[0m', execs)
+        } else {
+            console.log('\x1b[32m[packer] finished successfully (after ' + elapsed + 'ms)\x1b[0m', execs)
+            process.exit(0)
+        }
+    })
+    .catch((e) => {
+        console.error('\x1b[41m[30m[packer] finished with error(s)\x1b[0m', e)
+        process.exit(1)
+    })
+
