@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "0.0.1",
+        "version": "0.0.4.0",
         "title": "Icon1 API",
         "license": {
             "name": "UNLICENSED"
@@ -14,7 +14,7 @@
                 "operationId": "home",
                 "parameters": [],
                 "x-google-backend": {
-                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "address": "%GCF_URL%",
                     "path_translation": "CONSTANT_ADDRESS"
                 },
                 "responses": {
@@ -37,7 +37,7 @@
                     }
                 ],
                 "x-google-backend": {
-                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "address": "%GCF_URL%",
                     "path_translation": "APPEND_PATH_TO_ADDRESS"
                 },
                 "responses": {
@@ -52,7 +52,7 @@
                 "summary": "Icons Provider List",
                 "operationId": "icons-provider-list",
                 "x-google-backend": {
-                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "address": "%GCF_URL%",
                     "path_translation": "APPEND_PATH_TO_ADDRESS"
                 },
                 "parameters": [],
@@ -67,7 +67,7 @@
                 "operationId": "icons-provider-list-cors",
                 "parameters": [],
                 "x-google-backend": {
-                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "address": "%GCF_URL%",
                     "path_translation": "CONSTANT_ADDRESS"
                 },
                 "responses": {
@@ -90,7 +90,7 @@
                     }
                 ],
                 "x-google-backend": {
-                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "address": "%GCF_URL%",
                     "path_translation": "APPEND_PATH_TO_ADDRESS"
                 },
                 "responses": {
@@ -111,7 +111,7 @@
                     }
                 ],
                 "x-google-backend": {
-                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "address": "%GCF_URL%",
                     "path_translation": "CONSTANT_ADDRESS"
                 },
                 "responses": {
@@ -142,10 +142,15 @@
                         "in": "query",
                         "name": "variant",
                         "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "color",
+                        "type": "string"
                     }
                 ],
                 "x-google-backend": {
-                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "address": "%GCF_URL%",
                     "path_translation": "APPEND_PATH_TO_ADDRESS"
                 },
                 "responses": {
@@ -174,10 +179,15 @@
                         "in": "query",
                         "name": "variant",
                         "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "color",
+                        "type": "string"
                     }
                 ],
                 "x-google-backend": {
-                    "address": "https://europe-west1-bserve-cloud.cloudfunctions.net/icon1",
+                    "address": "%GCF_URL%",
                     "path_translation": "CONSTANT_ADDRESS"
                 },
                 "responses": {
